@@ -6,7 +6,6 @@ def smooth_step(edge1, edge2, value):
     x = (v - edge1) / (edge2 - edge1)
     t = clamp(x, 0.0, 1.0)
     res = (t * t * (3.0 - 2.0 * t))
-    # print(f"value: {value}, res: {res}")
     return res
 
 def mix(v1, v2, a):
