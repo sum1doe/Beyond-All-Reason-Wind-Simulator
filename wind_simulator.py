@@ -1,6 +1,6 @@
 import random
 import matplotlib.pyplot as plt
-from vector import Vector
+from vector import Vector, norm
 from utils import mix, clamp, smooth_step
 from physics import get_max_storage
 import numpy as np
@@ -71,7 +71,7 @@ class Simulator():
             while new_strength == 0.0:
                 self.new_wind_vec[0] -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
                 self.new_wind_vec[1] -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
-                new_strength = np.linalg.norm(self.new_wind_vec)
+                new_strength = norm(self.new_wind_vec)
             
             self.new_wind_vec /= new_strength
             new_strength = clamp(new_strength, min_wind, max_wind)
@@ -81,7 +81,7 @@ class Simulator():
         mod = smooth_step(0.0, 1.0, wind_dir_timer / TICKS_PER_WIND_UPDATE)
         self.curr_wind_vec = mix(self.old_wind_vec, self.new_wind_vec, mod)
         
-        length = np.linalg.norm(self.curr_wind_vec)
+        length = norm(self.curr_wind_vec)
         cur_wind_strength = np.clip(length, min_wind, max_wind)
         self.curr_wind_vec/=length
 

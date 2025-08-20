@@ -1,0 +1,27 @@
+Estall_heatmap has finished running.
+         36405424 function calls in 26.708 seconds
+
+   Ordered by: cumulative time
+   List reduced from 33 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001   26.707   26.707 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\estall_heatmap.py:6(run_sim)
+      110    0.767    0.007   26.653    0.242 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:116(simulate_wind_drop)
+  1650000    5.403    0.000   25.886    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:58(update_wind)
+  1657370    2.974    0.000    8.415    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:49(norm)
+  1650000    1.234    0.000    6.252    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:2250(clip)
+  1657370    1.180    0.000    5.271    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:2349(sum)
+  1650000    0.695    0.000    5.018    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:51(_wrapfunc)
+  1650000    1.258    0.000    4.080    0.000 {method 'clip' of 'numpy.generic' objects}
+  1657370    1.522    0.000    3.866    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:69(_wrapreduction)
+  1650000    0.863    0.000    2.998    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:4(smooth_step)
+  1650000    2.822    0.000    2.822    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\_methods.py:100(_clip)
+  1650000    2.628    0.000    2.628    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:11(mix)
+  3307370    1.017    0.000    2.143    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:1(clamp)
+  1657370    2.076    0.000    2.076    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  3307370    0.580    0.000    0.580    0.000 {built-in method builtins.min}
+  3307370    0.546    0.000    0.546    0.000 {built-in method builtins.max}
+  1657370    0.268    0.000    0.268    0.000 {method 'items' of 'dict' objects}
+  1650000    0.243    0.000    0.243    0.000 {built-in method builtins.getattr}
+  1657370    0.225    0.000    0.225    0.000 {built-in method builtins.isinstance}
+  1650000    0.172    0.000    0.172    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:2245(_clip_dispatcher)

@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 class Vector:
     def __init__(self, x, y):
@@ -44,3 +45,6 @@ class Vector:
             self.x /= len
             self.y /= len
         return len
+    
+def norm(vec):
+    return np.sqrt(np.sum(vec*vec))
