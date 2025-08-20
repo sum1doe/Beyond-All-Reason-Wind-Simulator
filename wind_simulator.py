@@ -80,10 +80,14 @@ class Simulator():
         
         mod = smooth_step(0.0, 1.0, wind_dir_timer / TICKS_PER_WIND_UPDATE)
         self.curr_wind_vec = mix(self.old_wind_vec, self.new_wind_vec, mod)
-        cur_wind_strength = np.clip(self.curr_wind_vec / np.linalg.norm(self.curr_wind_vec), min_wind, max_wind)
+        
+        length = np.linalg.norm(self.curr_wind_vec)
+        cur_wind_strength = np.clip(length, min_wind, max_wind)
+        self.curr_wind_vec/=length
 
         self.curr_wind_vec *= cur_wind_strength
 
+        # Expects float value
         return cur_wind_strength
 
     def simulate_wind(self, sim_time, min_wind, max_wind):
@@ -124,7 +128,7 @@ class Simulator():
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
             wind_speed = self.update_wind(tick, min_wind, max_wind)
             total_ticks += 1
-            print(wind_speed, avg_wind)
+            
             if wind_speed < avg_wind:
 
                 if ticks_below == 0:

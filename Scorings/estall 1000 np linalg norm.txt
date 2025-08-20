@@ -1,0 +1,31 @@
+Estall_heatmap has finished running.
+         38062818 function calls in 25.494 seconds
+
+   Ordered by: cumulative time
+   List reduced from 33 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.002    0.002   25.493   25.493 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\estall_heatmap.py:6(run_sim)
+      110    0.730    0.007   25.442    0.231 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:116(simulate_wind_drop)
+  1650000    6.261    0.000   24.712    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:58(update_wind)
+  1650000    1.278    0.000    6.519    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:2250(clip)
+  1657370    3.066    0.000    5.818    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\linalg\_linalg.py:2624(norm)
+  1650000    0.715    0.000    5.242    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:51(_wrapfunc)
+  1650000    1.281    0.000    4.290    0.000 {method 'clip' of 'numpy.generic' objects}
+  1650000    0.855    0.000    3.063    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:4(smooth_step)
+  1650000    3.008    0.000    3.008    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\_methods.py:100(_clip)
+  1650000    2.670    0.000    2.670    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:11(mix)
+  3307370    1.053    0.000    2.216    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:1(clamp)
+  1657370    1.429    0.000    1.429    0.000 {method 'dot' of 'numpy.ndarray' objects}
+  3307370    0.609    0.000    0.609    0.000 {built-in method builtins.min}
+  3307370    0.555    0.000    0.555    0.000 {built-in method builtins.max}
+  1657370    0.341    0.000    0.516    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\linalg\_linalg.py:128(isComplexType)
+  1657370    0.418    0.000    0.418    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+  3314740    0.366    0.000    0.366    0.000 {built-in method builtins.issubclass}
+  1650000    0.236    0.000    0.236    0.000 {built-in method builtins.getattr}
+  1657370    0.197    0.000    0.197    0.000 {built-in method numpy.asarray}
+  1650000    0.185    0.000    0.185    0.000 C:\Users\Danre\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py:2245(_clip_dispatcher)
+
+
+  Conclusions:
+  np.linalg.norm is slow.
