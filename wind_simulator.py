@@ -56,9 +56,6 @@ class Simulator():
 
     def update_wind(self, curr_tick, min_wind, max_wind):
         """Wind func from recoil engine"""
-
-        if curr_tick == 0:
-            self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
         
         wind_dir_timer = curr_tick % TICKS_PER_WIND_UPDATE
         if wind_dir_timer == 0:
@@ -93,6 +90,8 @@ class Simulator():
         total_wind = 0
         total_ticks = 0
         
+        self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
+        
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
             wind_speed = self.update_wind(tick, min_wind, max_wind)
             total_wind += wind_speed
@@ -120,6 +119,9 @@ class Simulator():
         
         ticks_below = 0
         curr_wind_lost = 0
+        
+        self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
+        
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
             wind_speed = self.update_wind(tick, min_wind, max_wind)
             total_ticks += 1
@@ -170,6 +172,9 @@ class Simulator():
                     estore_max = get_max_storage(estore_count)
                     curr_e = estore_max
                     estall_ticks = 0
+                    
+                    self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
+                    
                     for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
                         wind_speed = self.update_wind(tick, min_wind, max_wind)
 
@@ -204,6 +209,9 @@ class Simulator():
         estore_max = get_max_storage(estore_count)
         curr_e = estore_max
         estall_ticks = 0
+        
+        self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
+        
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
             wind_speed = self.update_wind(tick, min_wind, max_wind)
 
