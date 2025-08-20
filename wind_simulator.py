@@ -2,6 +2,7 @@ import random
 import matplotlib.pyplot as plt
 from vector import Vector
 from utils import mix, clamp, smooth_step
+from physics import get_max_storage
 
 # Avg wind based on [min][max] from BAR repo
 monte_carlo_avg_wind = {
@@ -32,7 +33,6 @@ monte_carlo_avg_wind = {
     24: {25: 24.4, 26: 24.6, 27: 24.7, 28: 24.7, 29: 24.8, 30: 24.8}
 }
 
-
 WINDMILL_COST = 45.5
 ASOLAR_COST = 427.14
 ESTORE_COST = 200.7
@@ -42,7 +42,7 @@ ESTORE_STORAGE = 6000
 BASE_STORAGE = 1000
 
 #Simulation time in seconds
-SIMULATION_TIME = 1000000
+#SIMULATION_TIME = 1000000
 TICKS_PER_SEC = 30
 TICKS_PER_WIND_UPDATE = 450
 TICKS_PER_ITERATION = 2
@@ -167,7 +167,7 @@ class Simulator():
                     passing = False
                     break
                 for estore_count in range(0, max_estore+1):
-                    estore_max = estore_count * 6000 + 1000
+                    estore_max = get_max_storage(estore_count)
                     curr_e = estore_max
                     estall_ticks = 0
                     for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
@@ -201,7 +201,7 @@ class Simulator():
         edrain_per_tick = edrain / (TICKS_PER_SEC / TICKS_PER_ITERATION)
         total_iteration_ticks = total_sim_ticks / TICKS_PER_ITERATION
 
-        estore_max = estore_count * 6000 + 1000
+        estore_max = get_max_storage(estore_count)
         curr_e = estore_max
         estall_ticks = 0
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):

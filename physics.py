@@ -1,0 +1,10 @@
+WINDMILL_COST = 45.5
+ASOLAR_COST = 427.14
+ESTORE_COST = 200.7
+
+ASOLAR_INCOME = 75
+ESTORE_STORAGE = 6000
+BASE_STORAGE = 1000
+
+def get_max_storage(estore_count):
+    return estore_count * ESTORE_STORAGE + BASE_STORAGE
