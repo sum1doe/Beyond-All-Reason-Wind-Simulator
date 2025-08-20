@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from vector import Vector
 from utils import mix, clamp, smooth_step
 from physics import get_max_storage
+import numpy as np
 
 # Avg wind based on [min][max] from BAR repo
 monte_carlo_avg_wind = {
@@ -50,15 +51,15 @@ TICKS_PER_ITERATION = 2
 class Simulator():
 
     def __init__(self):
-        self.curr_wind_vec = Vector(0,0)
-        self.old_wind_vec = Vector(0,0)
-        self.new_wind_vec = Vector(0,0)
+        self.curr_wind_vec = np.zeros(2)
+        self.old_wind_vec = np.zeros(2)
+        self.new_wind_vec = np.zeros(2)
 
     def update_wind(self, curr_tick, min_wind, max_wind):
         """Wind func from recoil engine"""
 
         if curr_tick == 0:
-            self.curr_wind_vec = Vector(max_wind/2, max_wind/2)
+            self.curr_wind_vec = np.ones(2) * max_wind / 2
         
         wind_dir_timer = curr_tick % TICKS_PER_WIND_UPDATE
         if wind_dir_timer == 0:
@@ -68,9 +69,9 @@ class Simulator():
             new_strength = 0.0
 
             while new_strength == 0.0:
-                self.new_wind_vec.x -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
-                self.new_wind_vec.y -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
-                new_strength = self.new_wind_vec.length()
+                self.new_wind_vec[0] -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
+                self.new_wind_vec[1] -= (random.uniform(0.0, 1.0) - 0.5) * max_wind
+                new_strength = np.linalg.norm(self.new_wind_vec)
             
             self.new_wind_vec /= new_strength
             new_strength = clamp(new_strength, min_wind, max_wind)
@@ -79,7 +80,7 @@ class Simulator():
         
         mod = smooth_step(0.0, 1.0, wind_dir_timer / TICKS_PER_WIND_UPDATE)
         self.curr_wind_vec = mix(self.old_wind_vec, self.new_wind_vec, mod)
-        cur_wind_strength = clamp(self.curr_wind_vec.normalize(), min_wind, max_wind)
+        cur_wind_strength = np.clip(self.curr_wind_vec / np.linalg.norm(self.curr_wind_vec), min_wind, max_wind)
 
         self.curr_wind_vec *= cur_wind_strength
 
@@ -123,7 +124,7 @@ class Simulator():
         for tick in range(0, total_sim_ticks, TICKS_PER_ITERATION):
             wind_speed = self.update_wind(tick, min_wind, max_wind)
             total_ticks += 1
-
+            print(wind_speed, avg_wind)
             if wind_speed < avg_wind:
 
                 if ticks_below == 0:
@@ -242,6 +243,9 @@ def calc_time_spent_e_positive(sim_time, edrain, min_wind, max_wind, wind_count,
 
 
 
+
+if __name__ == "__main__":
+    print("There's nothing being executed here atm, check out estall_heatmap.py and similar.")
 # Generate Heatmap for estall duration
 # array_2d = [[0 for _ in range(21)] for _ in range(10)]        
 
