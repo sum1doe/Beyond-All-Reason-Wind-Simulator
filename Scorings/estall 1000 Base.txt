@@ -1,0 +1,27 @@
+Estall_heatmap has finished running.
+         44662600 function calls in 14.412 seconds
+
+   Ordered by: cumulative time
+   List reduced from 26 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.002    0.002   14.411   14.411 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\estall_heatmap.py:6(run_sim)
+      110    0.538    0.005   14.358    0.131 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:111(simulate_wind_drop)
+  1650000    2.304    0.000   13.820    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\wind_simulator.py:57(update_wind)
+  1650000    1.385    0.000    4.779    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:11(mix)
+  4957370    1.457    0.000    3.124    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:1(clamp)
+  1650000    0.800    0.000    2.755    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\utils.py:4(smooth_step)
+  1650000    0.557    0.000    1.594    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:41(normalize)
+  1657370    0.858    0.000    1.198    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:33(__imul__)
+  1650000    0.854    0.000    1.179    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:13(__sub__)
+  1650000    0.794    0.000    1.121    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:18(__mul__)
+  1650000    0.803    0.000    1.093    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:8(__add__)
+  1657370    0.795    0.000    1.043    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:38(length)
+  4957370    0.866    0.000    0.866    0.000 {built-in method builtins.min}
+  4957370    0.801    0.000    0.801    0.000 {built-in method builtins.max}
+  6614740    0.700    0.000    0.700    0.000 {built-in method builtins.isinstance}
+  6615180    0.584    0.000    0.584    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:4(__init__)
+  1657370    0.249    0.000    0.249    0.000 {built-in method math.sqrt}
+      111    0.051    0.000    0.051    0.000 {built-in method builtins.print}
+    14740    0.006    0.000    0.009    0.000 C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\random.py:494(uniform)
+     7370    0.005    0.000    0.006    0.000 c:\Ender Pouches\Laptop v2\Code 2\Beyond-All-Reason-Wind-Simulator\vector.py:28(__itruediv__)
